@@ -14,10 +14,11 @@ async def answer(client, message):
         name = message.document.file_name if message.document else message.video.file_name
         # id = message.document.file_id if message.document else message.video.file_id
         await message.reply("Start Download......")
-        await message.download(name)
+        if not name in os.listdir("downloads"):
+            await message.download(name)
         await message.reply("End Download!!!!!!")
         await message.reply("Start Upload.......")
-        res = await upload_file("@King__0021", "./downloads/"+name)
+        res = await upload_file("King__0021", "./downloads/"+name)
         if res:
             await message.reply("End Upload!!!!!!")
         else:
