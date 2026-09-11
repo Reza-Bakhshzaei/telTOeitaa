@@ -17,7 +17,7 @@ async def answer(client, message):
         await message.download(name)
         await message.reply("End Download!!!!!!")
         await message.reply("Start Upload.......")
-        res = await upload_file("@Reza_B_Z", None, name)
+        res = await upload_file("@Reza_B_Z", name)
         if res:
             await message.reply("End Upload!!!!!!")
         else:
