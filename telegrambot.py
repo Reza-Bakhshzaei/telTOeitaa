@@ -1,6 +1,4 @@
 from pyrogram import Client, filters
-from crawle.crawler import get_results
-from crawle.videoDownloader import download_video_from_link
 import os
 
 api_id = 14381680
