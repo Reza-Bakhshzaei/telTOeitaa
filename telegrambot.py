@@ -1,5 +1,4 @@
-from pyrogram import Client, filters
-from eitaabot import upload_file
+from pyrogram import Client
 import os
 
 api_id = 14381680
@@ -17,12 +16,6 @@ async def answer(client, message):
         if not name in os.listdir("downloads"):
             await message.download(name)
         await message.reply("End Download!!!!!!")
-        await message.reply("Start Upload.......")
-        res = await upload_file("u0GOux0964339f923160b7fd0addb826", "./downloads/"+name)
-        if res:
-            await message.reply("End Upload!!!!!!")
-        else:
-            await message.reply(res)
 
 
 
