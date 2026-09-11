@@ -10,17 +10,16 @@ app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
 @app.on_message()
 async def answer(client, message):
-    print(message)
     if message.document or message.video:
         name = message.document.file_name if message.document else message.video.file_name
         # id = message.document.file_id if message.document else message.video.file_id
-        await message.replay("Start Download......")
+        await message.reply("Start Download......")
         await message.download(name)
-        await message.replay("End Download!!!!!!")
-        await message.replay("Start Upload.......")
+        await message.reply("End Download!!!!!!")
+        await message.reply("Start Upload.......")
         res = await upload_file("@Reza_B_Z", None, name)
         if res:
-            await message.replay("End Upload!!!!!!")
+            await message.reply("End Upload!!!!!!")
         else:
             await message.reply(res)
 
